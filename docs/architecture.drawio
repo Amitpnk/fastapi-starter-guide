@@ -1,0 +1,139 @@
+<mxfile host="drawio" version="24.0.0">
+  <diagram id="architecture" name="Architecture">
+    <mxGraphModel dx="1200" dy="700" grid="1" gridSize="10" guides="1" tooltips="1" connect="1" arrows="1" fold="1" page="1" pageScale="1" pageWidth="1520" pageHeight="720" math="0" shadow="0">
+      <root>
+        <mxCell id="0" />
+        <mxCell id="1" parent="0" />
+
+        <!-- Title -->
+        <mxCell id="title" value="&lt;b&gt;FastAPI Starter: Architecture&lt;/b&gt;&lt;br&gt;&lt;font style=&quot;font-size: 12px;&quot;&gt;Layered, grouped by feature. Each layer has one job.&lt;/font&gt;" style="text;html=1;align=left;verticalAlign=top;fontSize=20;" vertex="1" parent="1">
+          <mxGeometry x="20" y="10" width="600" height="50" as="geometry" />
+        </mxCell>
+
+        <!-- Feature container -->
+        <mxCell id="items" value="app/items/  (feature module)" style="rounded=1;whiteSpace=wrap;html=1;arcSize=3;fillColor=#f5f5f5;strokeColor=#999999;dashed=1;verticalAlign=top;align=left;spacingLeft=10;spacingTop=4;fontStyle=1;fontColor=#555555;" vertex="1" parent="1">
+          <mxGeometry x="510" y="80" width="780" height="440" as="geometry" />
+        </mxCell>
+
+        <!-- Outside the feature -->
+        <mxCell id="client" value="&lt;b&gt;Client&lt;/b&gt;&lt;br&gt;browser, curl, Swagger UI" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#ffffff;strokeColor=#333333;" vertex="1" parent="1">
+          <mxGeometry x="20" y="260" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="config" value="&lt;b&gt;core/config.py&lt;/b&gt;&lt;br&gt;Settings (env / .env)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#fff2cc;strokeColor=#d6b656;" vertex="1" parent="1">
+          <mxGeometry x="20" y="120" width="170" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="main" value="&lt;b&gt;app/main.py&lt;/b&gt;&lt;br&gt;FastAPI app, /health,&lt;br&gt;exception handlers" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="290" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="tests" value="&lt;b&gt;tests/test_items.py&lt;/b&gt;&lt;br&gt;pytest + TestClient" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#eeeeee;strokeColor=#666666;" vertex="1" parent="1">
+          <mxGeometry x="290" y="420" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Inside the feature -->
+        <mxCell id="schemas" value="&lt;b&gt;schemas.py&lt;/b&gt;&lt;br&gt;ItemCreate · ItemUpdate · ItemRead" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#d5e8d4;strokeColor=#82b366;" vertex="1" parent="1">
+          <mxGeometry x="540" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="exceptions" value="&lt;b&gt;exceptions.py&lt;/b&gt;&lt;br&gt;ItemNotFoundError" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#f8cecc;strokeColor=#b85450;" vertex="1" parent="1">
+          <mxGeometry x="800" y="120" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="router" value="&lt;b&gt;router.py&lt;/b&gt;&lt;br&gt;HTTP endpoints" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="540" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="service" value="&lt;b&gt;service.py&lt;/b&gt;&lt;br&gt;Business logic (no HTTP)" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="800" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="repository" value="&lt;b&gt;repository.py&lt;/b&gt;&lt;br&gt;Data access" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#dae8fc;strokeColor=#6c8ebf;" vertex="1" parent="1">
+          <mxGeometry x="1060" y="260" width="160" height="60" as="geometry" />
+        </mxCell>
+        <mxCell id="deps" value="&lt;b&gt;dependencies.py&lt;/b&gt;&lt;br&gt;Depends() wiring" style="rounded=1;whiteSpace=wrap;html=1;fillColor=#e1d5e7;strokeColor=#9673a6;" vertex="1" parent="1">
+          <mxGeometry x="800" y="420" width="160" height="60" as="geometry" />
+        </mxCell>
+
+        <!-- Storage -->
+        <mxCell id="memory" value="&lt;b&gt;In-memory dict&lt;/b&gt;&lt;br&gt;(current)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;size=12;fillColor=#ffe6cc;strokeColor=#d79b00;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="250" width="130" height="80" as="geometry" />
+        </mxCell>
+        <mxCell id="db" value="&lt;b&gt;Database&lt;/b&gt;&lt;br&gt;(future)" style="shape=cylinder3;whiteSpace=wrap;html=1;boundedLbl=1;size=12;fillColor=#ffffff;strokeColor=#d79b00;dashed=1;fontColor=#999999;" vertex="1" parent="1">
+          <mxGeometry x="1360" y="410" width="130" height="80" as="geometry" />
+        </mxCell>
+
+        <!-- Request flow (solid, bold) -->
+        <mxCell id="e1" value="HTTP request" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="client" target="main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e2" value="/api/v1" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="main" target="router">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e3" value="calls" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="router" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e4" value="calls" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="service" target="repository">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e5" value="read / write" style="edgeStyle=orthogonalEdgeStyle;html=1;strokeWidth=2;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="repository" target="memory">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Supporting relationships (dashed) -->
+        <mxCell id="e6" value="swap later" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#d79b00;fontColor=#d79b00;labelBackgroundColor=#ffffff;fontSize=11;exitX=1;exitY=0.75;exitDx=0;exitDy=0;entryX=0;entryY=0.5;entryDx=0;entryDy=0;entryPerimeter=0;" edge="1" parent="1" source="repository" target="db">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1320" y="305" />
+              <mxPoint x="1320" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e7" value="validate in / out" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#82b366;fontColor=#4d7a3a;labelBackgroundColor=#f5f5f5;fontSize=11;" edge="1" parent="1" source="router" target="schemas">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e8" value="raises" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#f5f5f5;fontSize=11;" edge="1" parent="1" source="service" target="exceptions">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e9" value="handler returns 404" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#b85450;fontColor=#b85450;labelBackgroundColor=#ffffff;fontSize=11;exitX=0.5;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="exceptions" target="main">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="880" y="70" />
+              <mxPoint x="370" y="70" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e10" value="injects service" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#f5f5f5;fontSize=11;exitX=0.25;exitY=0;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="deps" target="router">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="840" y="380" />
+              <mxPoint x="620" y="380" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e11" value="creates" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#f5f5f5;fontSize=11;exitX=0.75;exitY=0;exitDx=0;exitDy=0;entryX=0.75;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="deps" target="service">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e12" value="creates (one shared instance)" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#9673a6;fontColor=#9673a6;labelBackgroundColor=#f5f5f5;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.5;entryY=1;entryDx=0;entryDy=0;" edge="1" parent="1" source="deps" target="repository">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="1140" y="450" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e13" value="settings" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#d6b656;fontColor=#9c7d1f;labelBackgroundColor=#ffffff;fontSize=11;exitX=1;exitY=0.5;exitDx=0;exitDy=0;entryX=0.25;entryY=0;entryDx=0;entryDy=0;" edge="1" parent="1" source="config" target="main">
+          <mxGeometry relative="1" as="geometry">
+            <Array as="points">
+              <mxPoint x="330" y="150" />
+            </Array>
+          </mxGeometry>
+        </mxCell>
+        <mxCell id="e14" value="dependency_overrides&lt;br&gt;(fresh repo per test)" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#666666;fontColor=#666666;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="tests" target="deps">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+        <mxCell id="e15" value="TestClient" style="edgeStyle=orthogonalEdgeStyle;html=1;dashed=1;strokeColor=#666666;fontColor=#666666;labelBackgroundColor=#ffffff;fontSize=11;" edge="1" parent="1" source="tests" target="main">
+          <mxGeometry relative="1" as="geometry" />
+        </mxCell>
+
+        <!-- Legend -->
+        <mxCell id="legend" value="&lt;b&gt;Legend&lt;/b&gt;&lt;br&gt;━━━  request flow: Router → Service → Repository → Storage&lt;br&gt;- - -  supporting relationship (validates, raises, injects, configures, tests)&lt;br&gt;&lt;font color=&quot;#6c8ebf&quot;&gt;■&lt;/font&gt; layer  &lt;font color=&quot;#82b366&quot;&gt;■&lt;/font&gt; schemas  &lt;font color=&quot;#b85450&quot;&gt;■&lt;/font&gt; errors  &lt;font color=&quot;#9673a6&quot;&gt;■&lt;/font&gt; wiring  &lt;font color=&quot;#d6b656&quot;&gt;■&lt;/font&gt; config  &lt;font color=&quot;#d79b00&quot;&gt;■&lt;/font&gt; storage" style="text;html=1;align=left;verticalAlign=top;fontSize=11;spacingLeft=8;spacingTop=4;rounded=1;strokeColor=#cccccc;fillColor=#ffffff;whiteSpace=wrap;" vertex="1" parent="1">
+          <mxGeometry x="20" y="560" width="600" height="80" as="geometry" />
+        </mxCell>
+      </root>
+    </mxGraphModel>
+  </diagram>
+</mxfile>

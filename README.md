@@ -51,6 +51,9 @@ fastapi-starter-guide/
 │       └── exceptions.py    # errors for this feature
 ├── tests/
 │   └── test_items.py
+├── docs/
+│   ├── architecture.drawio  # diagram source (edit in draw.io)
+│   └── architecture.png     # exported image shown below
 ├── pyproject.toml           # project metadata and dependencies
 ├── uv.lock                  # exact pinned versions (commit this)
 └── .python-version          # Python version uv uses
@@ -58,13 +61,9 @@ fastapi-starter-guide/
 
 ## Architecture
 
-Each request passes through layers that each have one job:
+![Architecture diagram](docs/architecture.png)
 
-```
-Request → Router → Service → Repository → Storage
-            ↑
-         Schemas validate input and shape output
-```
+Each request passes through layers that each have one job: **Router → Service → Repository → Storage**. Solid arrows show the request flow. Dashed arrows show supporting relationships: validation, errors, dependency wiring, configuration, and tests.
 
 | Layer | File | Job | Knows about |
 |---|---|---|---|
