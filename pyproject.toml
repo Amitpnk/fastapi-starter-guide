@@ -6,7 +6,10 @@ readme = "README.md"
 requires-python = ">=3.10"
 dependencies = [
     "fastapi[standard]>=0.162.5",
+    "pydantic-settings>=2.15.0",
 ]
 
 [dependency-groups]
-dev = []
+dev = [
+    "pytest>=9.2.0",
+]
